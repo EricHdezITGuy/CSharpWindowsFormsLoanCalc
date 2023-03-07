@@ -126,14 +126,22 @@ namespace CalculadoraPrestamosWindowsForms
         {
             // Para reiniciar la app y eliminar los datos
             montoPrestamoBox.Clear();
-            tipoClienteBox.SelectedIndex = 0;
+            tipoClienteBox.SelectedIndex = -1;
             opcionPrestamoBox.SelectedIndex = -1;
             pagoMensualBox.Text = "";
+            cantidadAniosBox.Clear();
         }
 
         public void cantidadAniosBox_TextChanged(object sender, EventArgs e)
         {
-
+            if (int.TryParse(cantidadAniosBox.Text, out int cantidadAnios))
+            {
+                // usar el valor que recibe en String a int
+            }
+            else
+            {
+                // entrada invalida
+            }
         }
 
         public void pagoMensualBox_Click(object sender, EventArgs e)
