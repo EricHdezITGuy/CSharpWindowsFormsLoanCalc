@@ -31,6 +31,8 @@
             this.calcularPrestamo = new System.Windows.Forms.Button();
             this.generarRecibo = new System.Windows.Forms.Button();
             this.reiniciarCalculadora = new System.Windows.Forms.Button();
+            // Faltaba agregar otras propiedades para este botón
+            this.reiniciarCalculadora.Click += new System.EventHandler(this.reiniciarCalculadora_Click);
             this.salirCalculadora = new System.Windows.Forms.Button();
             this.montoPrestamoText = new System.Windows.Forms.Label();
             this.cantidadAniosText = new System.Windows.Forms.Label();
