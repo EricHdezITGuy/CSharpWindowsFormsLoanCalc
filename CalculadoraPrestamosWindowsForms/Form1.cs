@@ -31,6 +31,7 @@ namespace CalculadoraPrestamosWindowsForms
         public void Form1_Load(object sender, EventArgs e)
         {
             tipoClienteBox.Items.Insert(0, ""); // Agrega un espacio en blanco al inicio
+            opcionPrestamoBox.Items.Insert(0, ""); // Agrega un espacio en blanco al inicio
         }
         // Manejador de eventos para el clic en label1
         public void label1_Click_1(object sender, EventArgs e)
@@ -107,29 +108,32 @@ namespace CalculadoraPrestamosWindowsForms
         // Manejador de eventos para seleccionar la opción de préstamo
         public void opcionPrestamoBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            String opcionPrestamo = opcionPrestamoBox.Text;
-            {   // Establece la tasa de interés según la opción de préstamo seleccionada
-                switch (opcionPrestamo)
-                {
-                    case "Personal Regular - Tasa de interés: 15%":
-                        tasaInteres = (float)0.15;
-                        break;
-                    case "Personal Rápido - Tasa de interés: 18%":
-                        tasaInteres = (float)0.18;
-                        break;
-                    case "Reparación y ampliación de vivienda - Tasa de interés: 12%":
-                        tasaInteres = (float)0.12;
-                        break;
-                    case "Compra de Lote - Tasa de interés: 12%":
-                        tasaInteres = (float)0.12;
-                        break;
-                    case "Compra de Vehículo Nuevo - Tasa de interés: 18%":
-                        tasaInteres = (float)0.18;
-                        break;
-                    default:
-                        MessageBox.Show("Opción de préstamo no válida.", "Error");
-                        return;
-                }
+            if (opcionPrestamoBox.SelectedIndex != -1)
+            {
+                String opcionPrestamo = opcionPrestamoBox.Text;
+                {   // Establece la tasa de interés según la opción de préstamo seleccionada
+                    switch (opcionPrestamo)
+                    {
+                        case "Personal Regular - Tasa de interés: 15%":
+                            tasaInteres = (float)0.15;
+                            break;
+                        case "Personal Rápido - Tasa de interés: 18%":
+                            tasaInteres = (float)0.18;
+                            break;
+                        case "Reparación y ampliación de vivienda - Tasa de interés: 12%":
+                            tasaInteres = (float)0.12;
+                            break;
+                        case "Compra de Lote - Tasa de interés: 12%":
+                            tasaInteres = (float)0.12;
+                            break;
+                        case "Compra de Vehículo Nuevo - Tasa de interés: 18%":
+                            tasaInteres = (float)0.18;
+                            break;
+                        default:
+                            MessageBox.Show("Opción de préstamo no válida.", "Error");
+                            return;
+                    } 
+                }   
             }
         }
         // Manejador de eventos para reiniciar la calculadora
@@ -146,7 +150,7 @@ namespace CalculadoraPrestamosWindowsForms
             // Limpiar todos los campos de entrada y resultados
             montoPrestamoBox.Clear();
             tipoClienteBox.SelectedIndex = 0; // Selecciona el espacio en blanco
-            opcionPrestamoBox.SelectedIndex = -1;
+            opcionPrestamoBox.SelectedIndex = 0; // Selecciona el espacio en blanco
             pagoMensualBox.Text = "";
             cantidadAniosBox.Clear();
         }
