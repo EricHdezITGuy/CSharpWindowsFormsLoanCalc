@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 namespace CalculadoraPrestamosWindowsForms
 {
     public partial class Form1 : Form
-    {
+    {   // Declarar variables
         double descuento = 0;
         double montoPrestamo = 0;
         float tasaInteres = 0;
@@ -19,7 +19,7 @@ namespace CalculadoraPrestamosWindowsForms
         {
             InitializeComponent();
         }
-
+        // Manejador de eventos para el botón de salir
         public void button4_Click(object sender, EventArgs e)
         {   //Acá creamos un mensaje flotante para confirmar que queremos salir del app
             if (MessageBox.Show("¿Está seguro que desea salir?", "Salir de la aplicación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
@@ -27,12 +27,12 @@ namespace CalculadoraPrestamosWindowsForms
                 Application.Exit();
             }
         }
-
+        // Manejador de eventos para cargar el formulario
         public void Form1_Load(object sender, EventArgs e)
         {
 
         }
-
+        // Manejador de eventos para el clic en label1
         public void label1_Click_1(object sender, EventArgs e)
         {
 
@@ -47,9 +47,9 @@ namespace CalculadoraPrestamosWindowsForms
         {
 
         }
-
+        // Manejador de eventos para cambiar el tipo de cliente
         public void tipoClienteMenu_SelectedIndexChanged(object sender, EventArgs e)
-        {   //Este código es para leer la opción para descuento o no
+        {   //Este código es para leer la opción para descuento o no. Establece el descuento según el tipo de cliente seleccionado
             descuento = 0;
             tipoCliente = tipoClienteBox.SelectedItem.ToString().ToUpper();
 
@@ -64,7 +64,7 @@ namespace CalculadoraPrestamosWindowsForms
                     return;
             }
         }
-
+        // Manejador de eventos para calcular el préstamo
         public void calcularPrestamo_Click(object sender, EventArgs e)
         {
             PagoMensual = (montoPrestamo - montoPrestamo * descuento) * (tasaInteres / 12) /
@@ -84,9 +84,9 @@ namespace CalculadoraPrestamosWindowsForms
             var costoTotal = pagoTotal + montoDescuento;
             costoTotalBox.Text = "₡" + costoTotal.ToString("N2", nfi);
         }
-
+        // Manejador de eventos para el cambio de texto en montoPrestamo
         public void montoPrestamo_TextChanged(object sender, EventArgs e)
-        {
+        {   // Verifica si el monto del préstamo ingresado es válido y lo almacena en la variable
             if (double.TryParse(montoPrestamoBox.Text, NumberStyles.Currency, CultureInfo.InvariantCulture, out montoPrestamo))
             {
             }
@@ -95,16 +95,16 @@ namespace CalculadoraPrestamosWindowsForms
                 MessageBox.Show("Ingrese un valor numérico válido para el monto del préstamo.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
+        // Manejador de eventos para cargar el formulario
         public void Form1_Load_1(object sender, EventArgs e)
         {
 
         }
-
+        // Manejador de eventos para seleccionar la opción de préstamo
         public void opcionPrestamoBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             String opcionPrestamo = opcionPrestamoBox.Text;
-            {
+            {   // Establece la tasa de interés según la opción de préstamo seleccionada
                 switch (opcionPrestamo)
                 {
                     case "Personal Regular - Tasa de interés: 15%":
@@ -128,7 +128,7 @@ namespace CalculadoraPrestamosWindowsForms
                 }
             }
         }
-
+        // Manejador de eventos para reiniciar la calculadora
         public void reiniciarCalculadora_Click(object sender, EventArgs e)
         {
             montoPrestamoBox.Clear();
@@ -137,31 +137,31 @@ namespace CalculadoraPrestamosWindowsForms
             pagoMensualBox.Text = "";
             cantidadAniosBox.Clear();
         }
-
+        // Manejador de eventos para el cambio de texto en cantidadAniosBox
         public void cantidadAniosBox_TextChanged(object sender, EventArgs e)
-        {
+        {   // Verifica si la cantidad de años ingresada es válida y la almacena en la variable
             if (int.TryParse(cantidadAniosBox.Text, out cantidadAnios))
             {
-                // use the value received in String to int
+                // usa el valor recibido en la conversión de String a int
             }
             else
             {
-                // invalid input
+                // entrada no válida
             }
         }
-
+        // Manejador de eventos para el clic en descuentoBox
         public void descuentoBox_Click(object sender, EventArgs e)
         {
 
 
         }
-
+        // Manejador de eventos para el clic en pagoMensualBox
         public void pagoMensualBox_Click(object sender, EventArgs e)
         {
 
 
         }
-
+        // Manejador de eventos para el clic en costoTotalBox
         public void costoTotalBox_Click(object sender, EventArgs e)
         {
 
