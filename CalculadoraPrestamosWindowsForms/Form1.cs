@@ -50,18 +50,22 @@ namespace CalculadoraPrestamosWindowsForms
         // Manejador de eventos para cambiar el tipo de cliente
         public void tipoClienteMenu_SelectedIndexChanged(object sender, EventArgs e)
         {   //Este código es para leer la opción para descuento o no. Establece el descuento según el tipo de cliente seleccionado
-            descuento = 0;
-            tipoCliente = tipoClienteBox.SelectedItem.ToString().ToUpper();
-
-            switch (tipoCliente)
+            // Verificar si el índice seleccionado es diferente de -1
+            if (tipoClienteBox.SelectedIndex != -1)
             {
-                case "A1":
-                case "A2":
-                    descuento = 0.02;
-                    break;
-                case "C":
-                    MessageBox.Show("Crédito denegado.");
-                    return;
+                descuento = 0;
+                tipoCliente = tipoClienteBox.SelectedItem.ToString().ToUpper();
+
+                switch (tipoCliente)
+                {
+                    case "A1":
+                    case "A2":
+                        descuento = 0.02;
+                        break;
+                    case "C":
+                        MessageBox.Show("Crédito denegado.");
+                        return;
+                }
             }
         }
         // Manejador de eventos para calcular el préstamo
