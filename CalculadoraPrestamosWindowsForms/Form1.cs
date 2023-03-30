@@ -30,7 +30,7 @@ namespace CalculadoraPrestamosWindowsForms
         // Manejador de eventos para cargar el formulario
         public void Form1_Load(object sender, EventArgs e)
         {
-
+            tipoClienteBox.Items.Insert(0, ""); // Agrega un espacio en blanco al inicio
         }
         // Manejador de eventos para el clic en label1
         public void label1_Click_1(object sender, EventArgs e)
@@ -145,7 +145,7 @@ namespace CalculadoraPrestamosWindowsForms
 
             // Limpiar todos los campos de entrada y resultados
             montoPrestamoBox.Clear();
-            tipoClienteBox.SelectedIndex = -1;
+            tipoClienteBox.SelectedIndex = 0; // Selecciona el espacio en blanco
             opcionPrestamoBox.SelectedIndex = -1;
             pagoMensualBox.Text = "";
             cantidadAniosBox.Clear();
