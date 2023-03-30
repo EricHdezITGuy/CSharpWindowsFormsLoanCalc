@@ -21,15 +21,35 @@ namespace CalculadoraPrestamosWindowsForms
         }
 
         public void button4_Click(object sender, EventArgs e)
-        {
+        {   //Acá creamos un mensaje flotante para confirmar que queremos salir del app
             if (MessageBox.Show("¿Está seguro que desea salir?", "Salir de la aplicación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 Application.Exit();
             }
         }
 
-        public void tipoClienteMenu_SelectedIndexChanged(object sender, EventArgs e)
+        public void Form1_Load(object sender, EventArgs e)
         {
+
+        }
+
+        public void label1_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        public void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        public void label6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        public void tipoClienteMenu_SelectedIndexChanged(object sender, EventArgs e)
+        {   //Este código es para leer la opción para descuento o no
             descuento = 0;
             tipoCliente = tipoClienteBox.SelectedItem.ToString().ToUpper();
 
@@ -76,6 +96,11 @@ namespace CalculadoraPrestamosWindowsForms
             }
         }
 
+        public void Form1_Load_1(object sender, EventArgs e)
+        {
+
+        }
+
         public void opcionPrestamoBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             String opcionPrestamo = opcionPrestamoBox.Text;
@@ -93,8 +118,8 @@ namespace CalculadoraPrestamosWindowsForms
                         break;
                     case "Compra de Lote - Tasa de interés: 12%":
                         tasaInteres = (float)0.12;
-                        break
-                                            case "Compra de Vehículo Nuevo - Tasa de interés: 18%":
+                        break;
+                    case "Compra de Vehículo Nuevo - Tasa de interés: 18%":
                         tasaInteres = (float)0.18;
                         break;
                     default:
@@ -123,6 +148,24 @@ namespace CalculadoraPrestamosWindowsForms
             {
                 // invalid input
             }
+        }
+
+        public void descuentoBox_Click(object sender, EventArgs e)
+        {
+
+
+        }
+
+        public void pagoMensualBox_Click(object sender, EventArgs e)
+        {
+
+
+        }
+
+        public void costoTotalBox_Click(object sender, EventArgs e)
+        {
+
+
         }
     }
 }
