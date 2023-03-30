@@ -131,6 +131,15 @@ namespace CalculadoraPrestamosWindowsForms
         // Manejador de eventos para reiniciar la calculadora
         public void reiniciarCalculadora_Click(object sender, EventArgs e)
         {
+            // Restablecer las variables a sus valores iniciales
+            descuento = 0;
+            montoPrestamo = 0;
+            tasaInteres = 0;
+            opcionPrestamo = 0;
+            cantidadAnios = 0;
+            tipoCliente = "";
+
+            // Limpiar todos los campos de entrada y resultados
             montoPrestamoBox.Clear();
             tipoClienteBox.SelectedIndex = -1;
             opcionPrestamoBox.SelectedIndex = -1;
